@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -23,7 +24,6 @@ class _HomePageState extends State<HomePage> {
         title: Center(
           child: Text(
             "Ana Sayfa",
-            style: GoogleFonts.roboto(fontWeight: FontWeight.bold),
           ),
         ),
 
@@ -35,7 +35,6 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: NavigationBar(
         height: 60,
         backgroundColor: Colors.white,
-        indicatorColor: Colors.blueAccent.withOpacity(0.2),
         destinations: [
           NavigationDestination(icon: Icon(Icons.article), label: "Haber"),
           NavigationDestination(icon: Icon(Icons.sports_score), label: "Skor"),
