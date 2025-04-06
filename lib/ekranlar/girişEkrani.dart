@@ -62,6 +62,7 @@ class _GirisEkraniState extends State<GirisEkrani> {
     }
   }
 
+
   String _handleFirebaseAuthError(String errorCode) {
     switch (errorCode) {
       case 'user-not-found':
