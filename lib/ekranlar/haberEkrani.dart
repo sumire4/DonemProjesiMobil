@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:rss_dart/dart_rss.dart';
-import 'ekranlar/haberDetayEkrani.dart';
+import 'package:donemprojesi/ekranlar/haberDetayEkrani.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HaberEkrani extends StatefulWidget {

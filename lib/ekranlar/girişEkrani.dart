@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import 'ekranlar/hesabimEkrani.dart';
+import 'hesabimEkrani.dart';
 
 class GirisEkrani extends StatefulWidget {
   @override

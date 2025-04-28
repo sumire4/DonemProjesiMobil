@@ -1,9 +1,9 @@
-import 'package:donemprojesi/ekranlar/ekranlar/gecmisYarislarSayfasi.dart';
+import 'package:donemprojesi/ekranlar/gecmisYarislarSayfasi.dart';
 import 'package:flutter/material.dart';
-import 'ekranlar/ekranlar/hesabimEkrani.dart';
+import 'ekranlar/hesabimEkrani.dart';
 import 'ekranlar/girişEkrani.dart';
 import 'ekranlar/haberEkrani.dart';
-import 'ekranlar/ekranlar/briefEkrani.dart';
+import 'ekranlar/briefEkrani.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class HomePage extends StatefulWidget {
@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> _widgetOptions = <Widget>[
     HaberEkrani(), // Haberler (index 0)
     GecmisYarislarSayfasi(),
-    Briefekrani(),
+    BriefEkrani(),
 
     Center(child: Text('Hesap')), // Hesap (index 3) - Giriş ekranına yönlendiriliyor
   ];

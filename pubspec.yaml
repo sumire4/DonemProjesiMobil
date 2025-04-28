@@ -49,6 +49,8 @@ dev_dependencies:
   rss_dart:
   url_launcher: ^6.0.9
   flutter_html: ^3.0.0
+  google_generative_ai:
+  flutter_dotenv:
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

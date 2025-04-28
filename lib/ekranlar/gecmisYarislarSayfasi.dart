@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../models/yaris_model.dart';
 import '../../services/yaris_service.dart';
-import 'detaysayfasi.dart';
+import 'package:donemprojesi/ekranlar/detaysayfasi.dart';
 
 
 class GecmisYarislarSayfasi extends StatefulWidget {
