@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
-import 'hesabimEkrani.dart';
+import 'package:donemprojesi/ekranlar/profil/profil_ekrani.dart';
+import 'package:donemprojesi/ekranlar/profil/kayit_ekrani.dart';
 
 class GirisEkrani extends StatefulWidget {
   @override
@@ -139,21 +139,12 @@ class _GirisEkraniState extends State<GirisEkrani> {
               // Kayıt Ol Butonu (isteğe bağlı)
               TextButton(
                 onPressed: () {
-                  // Kayıt ekranına yönlendirme (isteğe bağlı)
-                  print('Kayıt ekranına git');
-                  // Navigator.push(...);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => KayitEkrani()),
+                  );
                 },
                 child: Text('Hesabınız yok mu? Kayıt olun'),
-              ),
-
-              // Şifremi Unuttum Butonu (isteğe bağlı)
-              TextButton(
-                onPressed: () {
-                  // Şifremi unuttum ekranına yönlendirme (isteğe bağlı)
-                  print('Şifremi unuttum');
-                  // Navigator.push(...);
-                },
-                child: Text('Şifremi unuttum'),
               ),
             ],
           ),

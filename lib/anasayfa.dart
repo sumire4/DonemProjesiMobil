@@ -1,9 +1,9 @@
-import 'package:donemprojesi/ekranlar/gecmisYarislarSayfasi.dart';
+import 'package:donemprojesi/ekranlar/paundurumu/standings_ekrani.dart';
 import 'package:flutter/material.dart';
-import 'ekranlar/hesabimEkrani.dart';
-import 'ekranlar/girişEkrani.dart';
-import 'ekranlar/haberEkrani.dart';
-import 'ekranlar/briefEkrani.dart';
+import 'package:donemprojesi/ekranlar/profil/profil_ekrani.dart';
+import 'ekranlar/profil/giris_ekrani.dart';
+import 'ekranlar/gazetelik/haber_ekrani.dart';
+import 'ekranlar/brief/brief_ekrani.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
 
   final List<Widget> _widgetOptions = <Widget>[
     HaberEkrani(), // Haberler (index 0)
-    GecmisYarislarSayfasi(),
+    StandingEkrani(),
     BriefEkrani(),
 
     Center(child: Text('Hesap')), // Hesap (index 3) - Giriş ekranına yönlendiriliyor
@@ -62,27 +62,27 @@ class _HomePageState extends State<HomePage> {
         title: Center(
           child: Text(
             _selectedIndex == 0
-                ? "Haberler"
+                ? "Gazetelik"
                 : _selectedIndex == 1
-                ? "Skorlar"
+                ? "Puan Durumu"
                 : _selectedIndex == 2
-                ? "AI"
-                : "Hesap",
+                ? "Brief"
+                : "Profil",
           ),
         ),
         elevation: 0,
       ),
       body: _selectedIndex < _widgetOptions.length - 1
           ? _widgetOptions[_selectedIndex]
-          : Center(child: Text("Hesap")), // Hesap için geçici placeholder
+          : Center(child: Text("Profil")), // Hesap için geçici placeholder
       bottomNavigationBar: NavigationBar(
-        height: 60,
+        height: 70,
         backgroundColor: Colors.white,
         destinations: [
-          NavigationDestination(icon: Icon(Icons.article), label: "Haber"),
-          NavigationDestination(icon: Icon(Icons.sports_score), label: "Skor"),
-          NavigationDestination(icon: Icon(Icons.auto_awesome), label: "AI"),
-          NavigationDestination(icon: Icon(Icons.person), label: "Hesap"),
+          NavigationDestination(icon: Icon(Icons.article), label: "Gazetelik"),
+          NavigationDestination(icon: Icon(Icons.sports_score), label: "Puan Durumu"),
+          NavigationDestination(icon: Icon(Icons.auto_awesome), label: "Brief"),
+          NavigationDestination(icon: Icon(Icons.person), label: "Profil"),
         ],
         selectedIndex: _selectedIndex,
         onDestinationSelected: _onItemTapped,

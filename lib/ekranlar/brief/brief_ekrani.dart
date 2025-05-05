@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:donemprojesi/chat_message.dart'; // Yeni oluşturduğunuz dosyayı import edin
-import 'package:donemprojesi/chat_bubble.dart';
+import 'package:donemprojesi/ekranlar/brief/chat_bubble.dart';
+import 'package:donemprojesi/ekranlar/brief/chat_message.dart';
 
 class BriefEkrani extends StatefulWidget {
   @override
@@ -34,17 +34,16 @@ class _ChatScreenState extends State<BriefEkrani> {
     final apiKey = dotenv.env['GEMINI_API_KEY'];
 
     if (apiKey != null) {
-      try{
-        _model = GenerativeModel(model: 'gemini-pro', apiKey: apiKey);
+      try {
+        _model = GenerativeModel(model: 'gemini-2.5-pro-exp-03-25', apiKey: apiKey);
         print("Gemini API başarıyla başlatıldı!");
-      }catch (e) {
+      } catch (e) {
         print("Gemini API başlatılamadı: $e");
         setState(() {
-          _messages.add(
-              ChatMessage(text: 'API başlatılamadı: $e', isUser: false));
+          _messages.add(ChatMessage(text: 'API başlatılamadı: $e', isUser: false));
         });
       }
-      } else {
+    } else {
       print("API anahtarı bulunamadı.");
       setState(() {
         _messages.add(ChatMessage(text: 'API anahtarı bulunamadı!', isUser: false));
@@ -58,11 +57,18 @@ class _ChatScreenState extends State<BriefEkrani> {
 
     setState(() {
       _isLoading = true;
-      _messages.add(ChatMessage(text: 'F1 tahminleri alınıyor...', isUser: false));
+      _messages.add(ChatMessage(text: 'Analiz Ediliyor...', isUser: false));
     });
 
     try {
-      final response = await _model.generateContent([Content.text('Önümüzdeki Formula 1 yarışı için bir sıralama tahmini yapar mısın? Nedenlerini kısaca açıkla.')]);
+      final response = await _model.generateContent([
+        Content.text(
+            'Önümüzdeki Formula 1 yarışı için bir sıralama tahmini yapar mısın? '
+                'Nedenlerini hava durumu pist zemin sıcaklığı ve yapısını dikkate alarak ve gelecek yarışı npistinin adını anarak '
+                'kısaca açıkla. Satırın başında günün saatine göre günaydın iyi günler iyi akşamlar vs ekle'
+                '(Uygulama açılınca ilk prompt olacak harika soru vs şeyler yazma, '
+                'kısaca ilk 5e kim girer ve sence kim kazanır onu söyle.)')
+      ]);
 
       setState(() {
         _isLoading = false;
@@ -73,13 +79,16 @@ class _ChatScreenState extends State<BriefEkrani> {
             response!.candidates!.isNotEmpty &&
             response.candidates!.first.content.parts.isNotEmpty &&
             response.candidates!.first.content.parts.first is TextPart) {
-          receivedText = (response.candidates!.first.content.parts.first as TextPart).text;
+          receivedText =
+              (response.candidates!.first.content.parts.first as TextPart).text;
         }
 
         if (receivedText != null) {
           _messages.add(ChatMessage(text: receivedText, isUser: false));
         } else {
-          _messages.add(ChatMessage(text: 'Tahmin alınırken bir hata oluştu veya cevap boş geldi.', isUser: false));
+          _messages.add(ChatMessage(
+              text: 'Tahmin alınırken bir hata oluştu veya cevap boş geldi.',
+              isUser: false));
         }
       });
     } catch (e) {
@@ -152,9 +161,6 @@ class _ChatScreenState extends State<BriefEkrani> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('F1 Tahminleri ve Sohbet'),
-      ),
       body: Column(
         children: <Widget>[
           Expanded(
@@ -175,8 +181,25 @@ class _ChatScreenState extends State<BriefEkrani> {
                 Expanded(
                   child: TextField(
                     controller: _textController,
+                    textInputAction: TextInputAction.send,
                     decoration: InputDecoration(
+                      filled: true, // Arka plan rengini belirler
+                      fillColor: Colors.white, // Arka plan rengi
                       hintText: 'Gemini\'ye soru sorun...',
+                      hintStyle: TextStyle(color: Colors.grey[500]), // Hint text rengi
+                      labelStyle: TextStyle(color: Colors.black), // Etiket rengi
+                      contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 14),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16), // Köşe yuvarlama
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blue, width: 2), // Focused border
+                        borderRadius: BorderRadius.circular(16), // Köşe yuvarlama
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey[300]!, width: 1), // Varsayılan border
+                        borderRadius: BorderRadius.circular(16), // Köşe yuvarlama
+                      ),
                     ),
                     onSubmitted: (value) {
                       if (value.trim().isNotEmpty) {
@@ -187,6 +210,12 @@ class _ChatScreenState extends State<BriefEkrani> {
                 ),
                 SizedBox(width: 8.0),
                 ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                  ),
                   onPressed: () {
                     if (_textController.text.trim().isNotEmpty) {
                       _sendMessage(_textController.text.trim());
@@ -196,7 +225,8 @@ class _ChatScreenState extends State<BriefEkrani> {
                 ),
               ],
             ),
-          ),
+          )
+
         ],
       ),
     );
