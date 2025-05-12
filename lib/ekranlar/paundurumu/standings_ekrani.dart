@@ -1,123 +1,89 @@
 import 'package:flutter/material.dart';
 import '../../../models/pilot_model.dart';
+import '../../../models/takim_model.dart';
 import '../../../services/pilot_service.dart';
-import '../../../models/takim_model.dart'; // Takım sıralamaları için model
-import '../../../services/takim_service.dart'; // TakımService
+import '../../../services/takim_service.dart';
 
-class StandingEkrani extends StatefulWidget {
-  const StandingEkrani({super.key});
-
+class StandingsEkrani extends StatefulWidget {
   @override
-  State<StandingEkrani> createState() => _StandingEkraniState();
+  _StandingsEkraniState createState() => _StandingsEkraniState();
 }
 
-class _StandingEkraniState extends State<StandingEkrani> {
-  late Future<List<PilotModel>> pilotSiralama;
+class _StandingsEkraniState extends State<StandingsEkrani> {
   late Future<List<TakimModel>> takimSiralama;
-  String errorMessage = ''; // Hata mesajı için bir değişken
+  late Future<List<PilotModel>> pilotSiralama;
 
   @override
   void initState() {
     super.initState();
-    pilotSiralama = fetchPilotSiralama();
-    takimSiralama = fetchTakimSiralama();
-  }
-
-  // Pilot sıralamaları verisini alırken hata mesajı ekle
-  Future<List<PilotModel>> fetchPilotSiralama() async {
-    try {
-      return await PilotService.getirSurucuSiralama();
-    } catch (e) {
-      setState(() {
-        errorMessage = 'API kotası doldu veya çok fazla istek gönderildi. Lütfen daha sonra tekrar deneyin.';
-      });
-      rethrow;
-    }
-  }
-
-  // Takım sıralamaları verisini alırken hata mesajı ekle
-  Future<List<TakimModel>> fetchTakimSiralama() async {
-    try {
-      return await TakimService.getirTakimSiralama();
-    } catch (e) {
-      setState(() {
-        errorMessage = 'API kotası doldu veya çok fazla istek gönderildi. Lütfen daha sonra tekrar deneyin.';
-      });
-      rethrow;
-    }
+    takimSiralama = TakimService.getirTakimSiralama();
+    pilotSiralama = PilotService.getirPilotSiralama();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          // Butonlar
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Flexible(
-                  child: ElevatedButton(
-                    onPressed: () {
-                      setState(() {
-                        pilotSiralama = fetchPilotSiralama();
-                      });
+      appBar: AppBar(
+        title: Text('Standings'),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Text("Takım Sıralaması", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            FutureBuilder<List<TakimModel>>(
+              future: takimSiralama,
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return CircularProgressIndicator();
+                } else if (snapshot.hasError) {
+                  return Text('Hata: ${snapshot.error}');
+                } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                  return Text('Veri bulunamadı');
+                } else {
+                  return ListView.builder(
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemCount: snapshot.data!.length,
+                    itemBuilder: (context, index) {
+                      final takim = snapshot.data![index];
+                      return ListTile(
+                        title: Text(takim.displayName),
+                        subtitle: Text('Rank: ${takim.rank} | Points: ${takim.points}'),
+                      );
                     },
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: Size(double.infinity, 50),
-                      backgroundColor: Colors.white38,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                    ),
-                    child: Text(
-                      'Pilot Sıralamaları',
-                      style: TextStyle(color: Colors.black),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-                SizedBox(width: 10),
-                Flexible(
-                  child: ElevatedButton(
-                    onPressed: () {
-                      setState(() {
-                        takimSiralama = fetchTakimSiralama();
-                      });
+                  );
+                }
+              },
+            ),
+            SizedBox(height: 20),
+            Text("Pilot Sıralaması", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            FutureBuilder<List<PilotModel>>(
+              future: pilotSiralama,
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return CircularProgressIndicator();
+                } else if (snapshot.hasError) {
+                  return Text('Hata: ${snapshot.error}');
+                } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                  return Text('Veri bulunamadı');
+                } else {
+                  return ListView.builder(
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemCount: snapshot.data!.length,
+                    itemBuilder: (context, index) {
+                      final pilot = snapshot.data![index];
+                      return ListTile(
+                        title: Text(pilot.driverName),
+                        subtitle: Text('Team: ${pilot.teamName} | Position: ${pilot.points}'),
+                      );
                     },
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: Size(double.infinity, 50),
-                      backgroundColor: Colors.white38,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                    ),
-                    child: Text(
-                      'Takım Sıralamaları',
-                      style: TextStyle(color: Colors.black),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-              ],
+                  );
+                }
+              },
             ),
-          ),
-          // Hata mesajını ekranın ortasında göstermek için Center widget'ı kullandık
-          if (errorMessage.isNotEmpty)
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  errorMessage,
-                  style: TextStyle(color: Colors.red, fontSize: 16),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ),
-          // Diğer içerik burada yer alacak (pilot ve takım sıralama listeleri vb.)
-        ],
+          ],
+        ),
       ),
     );
   }

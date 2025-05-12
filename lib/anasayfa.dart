@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
 
   final List<Widget> _widgetOptions = <Widget>[
     HaberEkrani(), // Haberler (index 0)
-    StandingEkrani(),
+    StandingsEkrani(),
     BriefEkrani(),
 
     Center(child: Text('Hesap')), // Hesap (index 3) - Giriş ekranına yönlendiriliyor

@@ -9,7 +9,9 @@ import 'dart:io';
 import 'package:intl/intl.dart'; // Tarih formatlamak için
 import 'package:donemprojesi/ekranlar/profil/giris_ekrani.dart';
 import 'package:firebase_core/firebase_core.dart';
-
+import 'package:donemprojesi/tema/theme_notifier.dart';
+import 'package:provider/provider.dart';
+import 'package:donemprojesi/main.dart';
 
 class HesabimEkrani extends StatefulWidget {
   @override
@@ -83,6 +85,22 @@ class _HesabimEkraniState extends State<HesabimEkrani> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Profil'),
+        actions: [
+          // Tema geçiş simgesini sağlayan IconButton
+          IconButton(
+            icon: Icon(
+              context.watch<ThemeNotifier>().themeMode == ThemeMode.dark
+                  ? Icons.wb_sunny
+                  : Icons.nightlight_round, // Güneş veya Ay simgesi
+              color: context.watch<ThemeNotifier>().themeMode == ThemeMode.dark
+                  ? Colors.white
+                  : Colors.grey,
+            ),
+            onPressed: () {
+              context.read<ThemeNotifier>().toggleTheme(); // Tema değişimi
+            },
+          ),
+        ],
       ),
       body: FutureBuilder<DocumentSnapshot>(
         future: _kullaniciVerisi,
@@ -109,6 +127,7 @@ class _HesabimEkraniState extends State<HesabimEkrani> {
 
           return Padding(
             padding: const EdgeInsets.all(16.0),
+            child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -256,6 +275,7 @@ class _HesabimEkraniState extends State<HesabimEkrani> {
                 ),
               ],
             ),
+            )
           );
         },
       ),

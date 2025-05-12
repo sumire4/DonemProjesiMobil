@@ -1,37 +1,37 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../models/pilot_model.dart';
-class PilotService {
-  static Future<List<PilotModel>> getirSurucuSiralama() async {
-    const url = 'https://f1-motorsport-data.p.rapidapi.com/standings-drivers?year=2025';
 
-    final response = await http.get(
-      Uri.parse(url),
-      headers: {
-        'x-rapidapi-host': 'f1-motorsport-data.p.rapidapi.com',
-        'x-rapidapi-key': 'deneme', // Kendi API key'in
-      },
-    );
+class PilotService {
+  static List<PilotModel>? _cache;
+
+  static const String _url = 'https://f1-motorsport-data.p.rapidapi.com/standings-drivers?year=2025';
+  static const Map<String, String> _headers = {
+    'X-RapidAPI-Key': 'deneme',
+    'X-RapidAPI-Host': 'f1-motorsport-data.p.rapidapi.com',
+  };
+
+  static Future<List<PilotModel>> getirPilotSiralama() async {
+    // Bellekte varsa tekrar istek atma
+    if (_cache != null) return _cache!;
+
+    final response = await http.get(Uri.parse(_url), headers: _headers);
 
     if (response.statusCode == 200) {
-      final body = jsonDecode(response.body);
+      final Map<String, dynamic> data = json.decode(response.body);
 
-      // entries içinde sürücü sıralamalarını alıyoruz
-      final entries = body['standings']?['entries'];
-      if (entries == null || entries is! List) {
-        print('Veri tipi yanlış veya eksik: ${entries.runtimeType}');
-        throw Exception('Beklenen "entries" listesi gelmedi.');
+      // Null kontrolü
+      if (data['standings'] == null || data['standings']['entries'] == null) {
+        throw Exception('API yanıtı beklenmedik formatta: standings null');
       }
 
-      return entries.map<PilotModel>((entry) {
-        return PilotModel(
-          isim: entry['athlete']?['name'] ?? 'Bilinmiyor',
-          takim: entry['athlete']?['flag']?['alt'] ?? 'Bilinmiyor', // Bayrak altındaki ülke ismi kullanılıyor
-          pozisyon: entry['stats']?[0]['value'] ?? 0,  // Rank değeri
-        );
-      }).toList();
+      final standings = data['standings'];
+      final List<dynamic> entries = standings['entries'];
+
+      _cache = entries.map((entry) => PilotModel.fromJson(entry)).toList();
+      return _cache!;
     } else {
-      throw Exception('RapidAPI verisi alınamadı: ${response.statusCode}');
+      throw Exception('Pilot verisi alınamadı: ${response.statusCode}');
     }
   }
 }

@@ -1,28 +1,38 @@
 class PilotModel {
-  final String isim;
-  final String takim;
-  final int pozisyon;
+  final String driverName;
+  final String teamName;
+  final int rank;
+  final int points;
 
   PilotModel({
-    required this.isim,
-    required this.takim,
-    required this.pozisyon,
+    required this.driverName,
+    required this.teamName,
+    required this.rank,
+    required this.points,
   });
 
   factory PilotModel.fromJson(Map<String, dynamic> json) {
-    try {
-      return PilotModel(
-        isim: json['driver']?['name'] ?? 'Bilinmiyor',  // Driver ismi güvenli kontrol
-        takim: json['team']?['name'] ?? 'Bilinmiyor',  // Team ismi güvenli kontrol
-        pozisyon: int.tryParse(json['position']?.toString() ?? '') ?? 0,  // Pozisyon sayısal dönüşüm
-      );
-    } catch (e) {
-      // Eğer JSON'dan herhangi bir veri düzgün çekilemezse default değerler kullan
-      return PilotModel(
-        isim: 'Bilinmiyor',
-        takim: 'Bilinmiyor',
-        pozisyon: 0,
-      );
+    final driver = json['driver'];
+    final team = json['team'];
+    final stats = json['stats'] as List<dynamic>? ?? [];
+
+    int rank = 0;
+    int points = 0;
+
+    for (var stat in stats) {
+      if (stat['name'] == 'rank') {
+        rank = stat['value'] ?? 0;
+      } else if (stat['name'] == 'points') {
+        points = stat['value'] ?? 0;
+      }
     }
+
+    return PilotModel(
+      driverName: driver != null ? driver['name'] ?? 'Bilinmiyor' : 'Bilinmiyor',
+      teamName: team != null ? team['name'] ?? 'Bilinmiyor' : 'Bilinmiyor',
+      rank: rank,
+      points: points,
+    );
   }
+
 }
