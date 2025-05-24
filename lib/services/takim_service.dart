@@ -5,7 +5,7 @@ import '../models/takim_model.dart';
 class TakimService {
   static const String _url = 'https://f1-motorsport-data.p.rapidapi.com/standings-controllers?year=2025';
   static const Map<String, String> _headers = {
-    'X-RapidAPI-Key': 'deneme',
+    'X-RapidAPI-Key': ' ',
     'X-RapidAPI-Host': 'f1-motorsport-data.p.rapidapi.com',
   };
 

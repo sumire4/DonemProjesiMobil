@@ -43,13 +43,13 @@ class _ProfilDuzenleEkraniState extends State<ProfilDuzenleEkrani> {
   ];
 
   final List<String> _takimlar = [
-    'Red Bull Racing',
+    'Red Bull',
     'Mercedes',
     'Ferrari',
     'McLaren',
     'Aston Martin',
     'Alpine',
-    'AlphaTauri',
+    'Racing Bulls',
     'Alfa Romeo',
     'Haas',
     'Williams',

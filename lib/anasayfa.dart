@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage> {
           : Center(child: Text("Profil")), // Hesap için geçici placeholder
       bottomNavigationBar: NavigationBar(
         height: 70,
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         destinations: [
           NavigationDestination(icon: Icon(Icons.article), label: "Gazetelik"),
           NavigationDestination(icon: Icon(Icons.sports_score), label: "Puan Durumu"),

@@ -8,7 +8,7 @@ class YarisService {
     final response = await http.get(
       url,
       headers: {
-        'X-RapidAPI-Key': 'deneme', // Buraya kendi API key'ini koy
+        'X-RapidAPI-Key': ' ',
         'X-RapidAPI-Host': 'f1-motorsport-data.p.rapidapi.coms',
       },
     );

@@ -1,0 +1,109 @@
+[
+  {
+    "name": "Monako Grand Prix'si",
+    "race_date": "2025-05-25T16:00:00",
+    "country": "Monako",
+    "flagUrl": "https://flagcdn.com/w320/mc.png",
+    "kusbakisiAsset": "assets/images/pistler/monaco_kusbakisi.png"
+  },
+  {
+    "name": "İspanya Grand Prix'si",
+    "race_date": "2025-06-01T16:00:00",
+    "country": "İspanya",
+    "flagUrl": "https://flagcdn.com/w320/es.png",
+    "kusbakisiAsset": "assets/images/pistler/spain_kusbakisi.png"
+  },
+  {
+    "name": "Kanada Grand Prix'si",
+    "race_date": "2025-06-15T21:00:00",
+    "country": "Kanada",
+    "flagUrl": "https://flagcdn.com/w320/ca.png",
+    "kusbakisiAsset": "assets/images/pistler/canada_kusbakisi.png"
+  },
+  {
+    "name": "Avusturya Grand Prix'si",
+    "race_date": "2025-06-29T16:00:00",
+    "country": "Avusturya",
+    "flagUrl": "https://flagcdn.com/w320/at.png",
+    "kusbakisiAsset": "assets/images/pistler/austria_kusbakisi.png"
+  },
+  {
+    "name": "Britanya Grand Prix'si",
+    "race_date": "2025-07-06T17:00:00",
+    "country": "Birleşik Krallık",
+    "flagUrl": "https://flagcdn.com/w320/gb.png",
+    "kusbakisiAsset": "assets/images/pistler/british_kusbakisi.png"
+  },
+  {
+    "name": "Belçika Grand Prix'si",
+    "race_date": "2025-07-27T16:00:00",
+    "country": "Belçika",
+    "flagUrl": "https://flagcdn.com/w320/be.png"
+  },
+  {
+    "name": "Macaristan Grand Prix'si",
+    "race_date": "2025-08-03T16:00:00",
+    "country": "Macaristan",
+    "flagUrl": "https://flagcdn.com/w320/hu.png"
+  },
+  {
+    "name": "Hollanda Grand Prix'si",
+    "race_date": "2025-08-31T16:00:00",
+    "country": "Hollanda",
+    "flagUrl": "https://flagcdn.com/w320/nl.png"
+  },
+  {
+    "name": "İtalya Grand Prix'si",
+    "race_date": "2025-09-07T16:00:00",
+    "country": "İtalya",
+    "flagUrl": "https://flagcdn.com/w320/it.png"
+  },
+  {
+    "name": "Azerbaycan Grand Prix'si",
+    "race_date": "2025-09-21T14:00:00",
+    "country": "Azerbaycan",
+    "flagUrl": "https://flagcdn.com/w320/az.png"
+  },
+  {
+    "name": "Singapur Grand Prix'si",
+    "race_date": "2025-10-05T15:00:00",
+    "country": "Singapur",
+    "flagUrl": "https://flagcdn.com/w320/sg.png"
+  },
+  {
+    "name": "ABD Grand Prix'si",
+    "race_date": "2025-10-19T22:00:00",
+    "country": "Amerika Birleşik Devletleri",
+    "flagUrl": "https://flagcdn.com/w320/us.png"
+  },
+  {
+    "name": "Mexico City Grand Prix'si",
+    "race_date": "2025-10-26T23:00:00",
+    "country": "Meksika",
+    "flagUrl": "https://flagcdn.com/w320/mx.png"
+  },
+  {
+    "name": "Brezilya Grand Prix'si",
+    "race_date": "2025-11-09T20:00:00",
+    "country": "Brezilya",
+    "flagUrl": "https://flagcdn.com/w320/br.png"
+  },
+  {
+    "name": "Las Vegas Grand Prix'si",
+    "race_date": "2025-11-23T07:00:00",
+    "country": "Amerika Birleşik Devletleri",
+    "flagUrl": "https://flagcdn.com/w320/us.png"
+  },
+  {
+    "name": "Katar Grand Prix'si",
+    "race_date": "2025-11-30T19:00:00",
+    "country": "Katar",
+    "flagUrl": "https://flagcdn.com/w320/qa.png"
+  },
+  {
+    "name": "Abu Dhabi Grand Prix'si",
+    "race_date": "2025-12-07T16:00:00",
+    "country": "Birleşik Arap Emirlikleri",
+    "flagUrl": "https://flagcdn.com/w320/ae.png"
+  }
+]
