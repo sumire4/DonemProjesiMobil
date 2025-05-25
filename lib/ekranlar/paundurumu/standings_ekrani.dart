@@ -1,3 +1,4 @@
+import 'package:donemprojesi/ekranlar/paundurumu/pilot_detay_sayfasi.dart' as pilotdty;
 import 'package:flutter/material.dart';
 import '../../../models/pilot_model.dart';
 import '../../../models/takim_model.dart';
@@ -91,6 +92,14 @@ class _StandingsEkraniState extends State<StandingsEkrani> {
                 ),
                 title: Text(pilot.driverName),
                 subtitle: Text('Takım: ${pilot.teamName} | Puan: ${pilot.points}'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => pilotdty.PilotDetaySayfasi(pilot: pilot),
+                    ),
+                  );
+                },
               );
 
             },

@@ -4,35 +4,100 @@
     "race_date": "2025-05-25T16:00:00",
     "country": "Monako",
     "flagUrl": "https://flagcdn.com/w320/mc.png",
-    "kusbakisiAsset": "assets/images/pistler/monaco_kusbakisi.png"
+    "kusbakisiAsset": "assets/images/pistler/monaco_kusbakisi.png",
+    "turns": "19",
+    "length": "3.337 km",
+    "lap_record": "1:12.909 - L. Hamilton (2021)",
+    "drs_zones": "1",
+    "first_gp": "1950",
+    "laps": "78",
+    "race_distance": "260.286 km",
+    "technical_analysis": {
+      "passing_opportunities": "Geçiş çok zordur, genellikle tünel sonrası şikana yöneliktir.",
+      "tire_wear": "Düşük lastik aşınması, yavaş virajlardan dolayı.",
+      "weather_advantage": "Yağmurda kaos yaşanabilir, güvenlik aracı ihtimali yüksektir.",
+      "trivia": "En prestijli yarışlardan biri olup, pilot hatası affetmeyen dar sokaklara sahiptir."
+    }
   },
   {
     "name": "İspanya Grand Prix'si",
     "race_date": "2025-06-01T16:00:00",
     "country": "İspanya",
     "flagUrl": "https://flagcdn.com/w320/es.png",
-    "kusbakisiAsset": "assets/images/pistler/spain_kusbakisi.png"
+    "kusbakisiAsset": "assets/images/pistler/spain_kusbakisi.png",
+    "turns": "16",
+    "length": "4.675 km",
+    "lap_record": "1:18.149 - M. Verstappen (2021)",
+    "drs_zones": "2",
+    "first_gp": "1951",
+    "laps": "66",
+    "race_distance": "308.424 km",
+    "technical_analysis": {
+      "passing_opportunities": "Ana düzlükte DRS ile geçiş mümkündür.",
+      "tire_wear": "Yüksek lastik aşınması, özellikle sol ön lastikte.",
+      "weather_advantage": "Sıcak havalarda lastik yönetimi daha zor olabilir.",
+      "trivia": "Sezon öncesi testlerin yapıldığı popüler bir pisttir."
+    }
   },
   {
     "name": "Kanada Grand Prix'si",
     "race_date": "2025-06-15T21:00:00",
     "country": "Kanada",
     "flagUrl": "https://flagcdn.com/w320/ca.png",
-    "kusbakisiAsset": "assets/images/pistler/canada_kusbakisi.png"
+    "kusbakisiAsset": "assets/images/pistler/canada_kusbakisi.png",
+    "turns": "14",
+    "length": "4.361 km",
+    "lap_record": "1:13.078 - V. Bottas (2019)",
+    "drs_zones": "2",
+    "first_gp": "1967",
+    "laps": "70",
+    "race_distance": "305.27 km",
+    "technical_analysis": {
+      "passing_opportunities": "Uzun düzlükler sayesinde DRS bölgelerinde geçiş mümkündür.",
+      "tire_wear": "Orta seviyede lastik aşınması.",
+      "weather_advantage": "Ani yağmurlar yarışın kaderini etkileyebilir.",
+      "trivia": "Duvara en yakın virajda 'Wall of Champions' olarak bilinen bölge vardır."
+    }
   },
   {
     "name": "Avusturya Grand Prix'si",
     "race_date": "2025-06-29T16:00:00",
     "country": "Avusturya",
     "flagUrl": "https://flagcdn.com/w320/at.png",
-    "kusbakisiAsset": "assets/images/pistler/austria_kusbakisi.png"
+    "kusbakisiAsset": "assets/images/pistler/austria_kusbakisi.png",
+    "turns": "10",
+    "length": "4.318 km",
+    "lap_record": "1:05.619 - C. Sainz (2020)",
+    "drs_zones": "3",
+    "first_gp": "1970",
+    "laps": "71",
+    "race_distance": "306.452 km",
+    "technical_analysis": {
+      "passing_opportunities": "Birden fazla DRS bölgesiyle bol geçiş fırsatı sunar.",
+      "tire_wear": "Düşük lastik aşınması, kısa pist turu avantaj sağlar.",
+      "weather_advantage": "Dağlık yapısı ani hava değişimlerine neden olabilir.",
+      "trivia": "En kısa tur zamanına sahip pistlerden biridir."
+    }
   },
   {
     "name": "Britanya Grand Prix'si",
     "race_date": "2025-07-06T17:00:00",
     "country": "Birleşik Krallık",
     "flagUrl": "https://flagcdn.com/w320/gb.png",
-    "kusbakisiAsset": "assets/images/pistler/british_kusbakisi.png"
+    "kusbakisiAsset": "assets/images/pistler/british_kusbakisi.png",
+    "turns": "18",
+    "length": "5.891 km",
+    "lap_record": "1:27.097 - M. Verstappen (2020)",
+    "drs_zones": "2",
+    "first_gp": "1950",
+    "laps": "52",
+    "race_distance": "306.198 km",
+    "technical_analysis": {
+      "passing_opportunities": "Maggotts-Becketts-Chapel sonrası uzun düzlükte geçiş fırsatları vardır.",
+      "tire_wear": "Yüksek hızlar lastiklere yük bindirir, orta-yüksek aşınma.",
+      "weather_advantage": "Değişken hava koşulları sık görülür.",
+      "trivia": "İlk F1 yarışı burada yapılmıştır."
+    }
   },
   {
     "name": "Belçika Grand Prix'si",

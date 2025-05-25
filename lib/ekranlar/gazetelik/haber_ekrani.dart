@@ -34,61 +34,6 @@ class _HaberEkraniState extends State<HaberEkrani> {
   String? _havaDurumuMain;
   bool _notificationEnabled = false;
 
-
-  void _checkAndNotify() {
-    // Örnek kalan süreyi dakika cinsinden alıyoruz
-    final remainingDuration = _enYakinYaris != null ? _enYakinYaris!['remainingMinutes'] as int? ?? 0 : 0;
-
-    if (_notificationEnabled && remainingDuration <= 60) {
-      _showNotification();
-    }
-  }
-
-  Future<void> _showNotification() async {
-    const AndroidNotificationDetails androidDetails = AndroidNotificationDetails(
-      'your_channel_id',
-      'your_channel_name',
-      channelDescription: 'your_channel_description',
-      importance: Importance.max,
-      priority: Priority.high,
-      playSound: true,
-    );
-
-    const NotificationDetails platformDetails = NotificationDetails(android: androidDetails);
-
-    await flutterLocalNotificationsPlugin.show(
-      0,
-      'Yarış bildirimi',
-      'Kalan süre 1 saate ulaştı!',
-      platformDetails,
-    );
-  }
-
-
-  Future<void> _bildirimGonder() async {
-    const AndroidNotificationDetails androidPlatformChannelSpecifics =
-    AndroidNotificationDetails(
-      'yarış_kalani', // Kanal ID
-      'Yarış Bildirimleri', // Kanal Adı
-      channelDescription: 'Yarış zamanı bildirimi',
-      importance: Importance.max,
-      priority: Priority.high,
-      ticker: 'ticker',
-    );
-
-    const NotificationDetails platformChannelSpecifics =
-    NotificationDetails(android: androidPlatformChannelSpecifics);
-
-    await flutterLocalNotificationsPlugin.show(
-      0,
-      'Yarış Zamanı',
-      '${_enYakinYaris?['name']} başladı!',
-      platformChannelSpecifics,
-      payload: 'Yarış bildirimi',
-    );
-  }
-
-
   List<Map<String, dynamic>> _f1Calendar = [];
   Map<String, dynamic>? _enYakinYaris;
 
@@ -317,6 +262,13 @@ class _HaberEkraniState extends State<HaberEkrani> {
 
   @override
   Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser;
+    final email = user?.email ?? "Kullanıcı";
+    final namePart = email.split('@').first;
+    final capitalized = namePart.isNotEmpty
+        ? "${namePart[0].toUpperCase()}${namePart.substring(1)}"
+        : "Kullanıcı";
+
     return Scaffold(
       body: FutureBuilder<List<RssItem>>(
         future: _haberler,
@@ -349,11 +301,11 @@ class _HaberEkraniState extends State<HaberEkrani> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              "${_selamla()} 👋",
+                              "${_selamla()} $capitalized",
                               style: Theme.of(context).textTheme.titleLarge?.copyWith(
                                 fontWeight: FontWeight.bold,
                               ),
-                              textAlign: TextAlign.start,
+                              textAlign: TextAlign.center,
                             ),
                             const SizedBox(height: 8),
                             if (_sicaklik != null && _havaDurumu != null && _sehir != null)
@@ -382,10 +334,11 @@ class _HaberEkraniState extends State<HaberEkrani> {
                         ),
                       ),
 
+
                       // İnce dikey çizgi
                       Container(
                         width: 1,
-                        height: 50, // Çizginin yüksekliği ihtiyaca göre ayarlanabilir
+                        height: 80, // Çizginin yüksekliği ihtiyaca göre ayarlanabilir
                         color: Colors.grey[400],
                         margin: const EdgeInsets.symmetric(horizontal: 12),
                       ),
