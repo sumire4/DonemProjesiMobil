@@ -1,6 +1,19 @@
-# donemprojesi
+FormulaBrief Formula 1 tutkunları için geliştirilmiş bir mobil uygulamadır. Kullanıcılar uygulama üzerinden güncel F1 haberlerine ulaşabilir, yarış sonuçlarını takip edebilir, takımlar ve pilotlar hakkında detaylı bilgiler edinebilir. Ayrıca yapay zekâ destekli tahmin ve analiz özellikleriyle yarışlar hakkında öngörüler elde edebilir.
 
-donem projesi
+🚀 Özellikler
+📰 Güncel F1 Haberleri (RSS ile motorsport.com.tr'den çekilir)
+
+🏁 Yarış Takvimi ve Pist Bilgileri
+
+📊 Sıralamalar (Pilotlar & Takımlar)
+
+🧠 AI Destekli Sohbet ve Tahminler (ChatGPT API ile)
+
+❤️ Favorilere Ekleme Özelliği (Kullanıcı bazlı kayıt)
+
+🔐 Kullanıcı Girişi ve Profil Sayfası
+
+☁️ Web ve Mobil Uyumluluk
 
 ## Getting Started
 
