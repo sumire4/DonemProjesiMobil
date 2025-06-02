@@ -1,29 +1,39 @@
-FormulaBrief Formula 1 tutkunları için geliştirilmiş bir mobil uygulamadır. Kullanıcılar uygulama üzerinden güncel F1 haberlerine ulaşabilir, yarış sonuçlarını takip edebilir, takımlar ve pilotlar hakkında detaylı bilgiler edinebilir. Ayrıca yapay zekâ destekli tahmin ve analiz özellikleriyle yarışlar hakkında öngörüler elde edebilir.
+# 🏎️ FormulaBrief
 
-🚀 Özellikler
-📰 Güncel F1 Haberleri (RSS ile motorsport.com.tr'den çekilir)
+**FormulaBrief**, Formula 1 meraklıları için geliştirilmiş, modern ve kullanıcı dostu bir mobil/web uygulamasıdır. Kullanıcılar uygulama üzerinden güncel F1 haberlerine ulaşabilir, pist detaylarını inceleyebilir, pilot ve takım sıralamalarını görebilir, yapay zekâ destekli analizler alabilir ve kişisel profilleri üzerinden favori haberleri takip edebilir.
 
-🏁 Yarış Takvimi ve Pist Bilgileri
+---
 
-📊 Sıralamalar (Pilotlar & Takımlar)
+## 🚀 Özellikler
 
-🧠 AI Destekli Sohbet ve Tahminler (ChatGPT API ile)
+- 📰 Güncel F1 Haberleri (motorsport.com.tr üzerinden RSS ile çekilir)
+- 🏁 Pist Detayları ve Yarış Takvimi
+- 📊 Pilot ve Takım Puan Durumları
+- 🧠 ChatGPT Entegrasyonu ile Yapay Zekâ Sohbet
+- ❤️ Haberleri Favorilere Ekleme (Kullanıcı Bazlı)
+- 🔐 Giriş, Kayıt ve Profil Sayfası
+- 🌐 Web & Mobil Uyumluluk
 
-❤️ Favorilere Ekleme Özelliği (Kullanıcı bazlı kayıt)
+---
 
-🔐 Kullanıcı Girişi ve Profil Sayfası
+## 📸 Ekran Görüntüleri
 
-☁️ Web ve Mobil Uyumluluk
+### Ana Ekran
+![Ana Ekran](ekran-goruntuleri/anaekran.jpg)
 
-## Getting Started
+### Pist Detay Ekranı
+![Pist Detay](ekran-goruntuleri/pistdetayekrani.jpg)
 
-This project is a starting point for a Flutter application.
+### Profil Ekranı
+![Profil Ekranı](ekran-goruntuleri/profilekrani.jpg)
 
-A few resources to get you started if this is your first Flutter project:
+### Pilot Puan Durumu
+![Pilot Puan Durumu](ekran-goruntuleri/puantablopilot.jpg)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Takım Puan Durumu
+![Takım Puan Durumu](ekran-goruntuleri/puantablotakim.jpg)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Yapay Zekâ Ekranı
+![Yapay Zeka Ekranı](ekran-goruntuleri/yapayzekaekrani.jpg)
+
+---
