@@ -18,22 +18,21 @@
 
 ## 📸 Ekran Görüntüleri
 
-### Ana Ekran
-![Ana Ekran](ekran-goruntuleri/anaekran.jpg)
+<h3>Ana Ekran & Pist Detay</h3>
+<p align="center">
+  <img src="ekran-goruntuleri/anaekran.jpg" width="200" />
+  <img src="ekran-goruntuleri/pistdetayekrani.jpg" width="200" />
+</p>
 
-### Pist Detay Ekranı
-![Pist Detay](ekran-goruntuleri/pistdetayekrani.jpg)
+<h3>Profil Ekranı & Yapay Zekâ</h3>
+<p align="center">
+  <img src="ekran-goruntuleri/profilekrani.jpg" width="200" />
+  <img src="ekran-goruntuleri/yapayzekaekrani.jpg" width="200" />
+</p>
 
-### Profil Ekranı
-![Profil Ekranı](ekran-goruntuleri/profilekrani.jpg)
+<h3>Pilot & Takım Puan Durumu</h3>
+<p align="center">
+  <img src="ekran-goruntuleri/puantablopilot.jpg" width="200" />
+  <img src="ekran-goruntuleri/puantablotakim.jpg" width="200" />
+</p>
 
-### Pilot Puan Durumu
-![Pilot Puan Durumu](ekran-goruntuleri/puantablopilot.jpg)
-
-### Takım Puan Durumu
-![Takım Puan Durumu](ekran-goruntuleri/puantablotakim.jpg)
-
-### Yapay Zekâ Ekranı
-![Yapay Zeka Ekranı](ekran-goruntuleri/yapayzekaekrani.jpg)
-
----
